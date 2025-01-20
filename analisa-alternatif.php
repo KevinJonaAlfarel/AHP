@@ -43,9 +43,9 @@ window.onload=function(){
 		  </div>
 		  <div class="col-xs-12 col-sm-12 col-md-10">
 		  <ol class="breadcrumb">
-			  <li><a href="index.php"><span class="fa fa-home"></span> Beranda</a></li>
+			  <li><a href="index.php" style= "color: #5B913B;"><span class="fa fa-home"></span> Beranda</a></li>
 			  <li class="active"><span class="fa fa-balance-scale"></span> Analisa Alternatif</li>
-	  		  <li><a href="#" data-toggle="modal" data-target="#myModalalt"><span class="fa fa-table"></span> Tabel Analisa Alternatif</a></li>
+	  		  <li><a href="#" data-toggle="modal" data-target="#myModalalt" style= "color: #5B913B;"><span class="fa fa-table"></span> Tabel Analisa Alternatif</a></li>
 			</ol>
 			<!-- Modal -->
 			<div class="modal fade" id="myModalalt" tabindex="-1" role="dialog" aria-labelledby="myModalLabelalt">
@@ -537,7 +537,7 @@ window.onload=function(){
 					  </div>
 					</div>
 				
-					<button type="submit" name="subankr" class="btn btn-primary"> Selanjutnya <span class="fa fa-arrow-right"></span></button>
+					<button type="submit" name="subankr" class="btn btn-primary" style="background-color: #5B913B; border-color: #5B913B;"> Selanjutnya <span class="fa fa-arrow-right"></span></button>
 				</form>
 			  
 		  </div></div></div>

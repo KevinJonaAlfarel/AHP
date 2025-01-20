@@ -40,9 +40,9 @@ if($_POST){
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body style="background: #ffffff url(images/back1.jpg) left bottom fixed;">
+  <body style="background:rgb(255, 255, 255) url(images/back1.jpg) left bottom fixed;">
   
-	<nav class="navbar navbar-default navbar-static-top">
+	<nav class="navbar navbar-default navbar-static-top" style="background-color: #5B913B; border-color: #5B913B; color: rgb(255, 255, 255);">
 	  <div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -82,7 +82,7 @@ if($_POST){
 				    <input type="password" class="form-control" name="password" id="InputPassword1" placeholder="Kata Sandi">
 				  </div>
 				  <p><small style="color:#999;">Username: admin dan Password: admin</small></p>
-				  <button type="submit" class="btn btn-primary">Login</button>
+				  <button type="submit" class="btn btn-primary" style="background-color:#5B913B; border-color:#5B913B;">Login</button>
 				</form>
 		  	</div></div>
 		  	

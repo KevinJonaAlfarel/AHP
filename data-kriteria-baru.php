@@ -51,11 +51,10 @@ window.onload=function(){
 				  <div class="form-group">
 				    <label for="kd">ID Kriteria</label>
 				    <select class="form-control" id="kd" name="kd">
-						<option>C1</option>
-						<option>C2</option>
-						<option>C3</option>
-						<option>C4</option>
-						<option>C5</option>
+						<option value="C1">C1</option>
+						<option value="C2">C2</option>
+						<option value="C3">C3</option>
+						<option value="C4">C4</option>
 					</select>
 				  </div>
 				  <div class="form-group">

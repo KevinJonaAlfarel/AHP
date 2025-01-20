@@ -62,11 +62,11 @@ $stmtx2y = $pro->readBob();
 		                <th><?php echo $row1['nama_alternatif'] ?></th>
 		                <?php
 		                $a= $row1['id_alternatif'];
-						$stmt21 = $pro2->readAll();
-						while ($row21 = $stmt21->fetch(PDO::FETCH_ASSOC)){
-							$b= $row21['id_kriteria'];
-							$stmtr = $pro->readR($a,$b);
-							while ($rowr = $stmtr->fetch(PDO::FETCH_ASSOC)){
+						$stmt1 = $pro1->readAll();
+						while ($row2 = $stmt21->fetch(PDO::FETCH_ASSOC)){
+							$b= $row['id_kriteria'];
+							$stmtr = $pro2->readR($a,$b);
+							while ($row = $stmtr->fetch(PDO::FETCH_ASSOC)){
 						?>
 		                <td>
 		                	<?php 

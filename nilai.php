@@ -45,7 +45,7 @@ if(isset($_POST['hapus-contengan'])){
 	</div>
 	<div class="col-xs-12 col-sm-12 col-md-10">
 	<ol class="breadcrumb">
-	  <li><a href="index.php"><span class="fa fa-home"></span> Beranda</a></li>
+	  <li><a href="index.php" style= "color: #5B913B;"><span class="fa fa-home"></span> Beranda</a></li>
 	  <li class="active"><span class="fa fa-modx"></span> Nilai</li>
 	</ol>
 <form method="post">
@@ -54,8 +54,8 @@ if(isset($_POST['hapus-contengan'])){
 			<strong style="font-size:18pt;"><span class="fa fa-modx"></span> Data Nilai Preferensi</strong>
 		</div>
 		<div class="col-md-6 text-right">
-            <button type="submit" name="hapus-contengan" class="btn btn-danger"><span class="fa fa-close"></span> Hapus Contengan</button>
-			<button type="button" onclick="location.href='nilai-baru.php'" class="btn btn-primary"><span class="fa fa-clone"></span> Tambah Data</button>
+            <button type="submit" name="hapus-contengan" class="btn btn-danger" style= "background-color: #5B913B; border-color: #5B913B;"><span class="fa fa-close"></span> Hapus Contengan</button>
+			<button type="button" onclick="location.href='nilai-baru.php'" class="btn btn-primary" style= "background-color: #5B913B; border-color: #5B913B;"><span class="fa fa-clone"></span> Tambah Data</button>
 		</div>
 	</div>
 	<br/>

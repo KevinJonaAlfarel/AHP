@@ -40,7 +40,7 @@ window.onload=function(){
 	</div>
 	<div class="col-xs-12 col-sm-12 col-md-10">
 	<ol class="breadcrumb">
-	  <li><a href="index.php"><span class="fa fa-home"></span> Beranda</a></li>
+	  <li><a href="index.php" style= "color: #5B913B;"><span class="fa fa-home"></span> Beranda</a></li>
 	  <li class="active"><span class="fa fa-user"></span> Profil</li>
 	</ol>
 		  	<p style="margin-bottom:10px;">
@@ -59,7 +59,7 @@ window.onload=function(){
                     <label for="pw">Password</label>
                     <input type="text" class="form-control" id="pw" name="pw" value="<?php echo $eks->pw; ?>" required>
                   </div>
-                  <button type="submit" class="btn btn-primary"><span class="fa fa-edit"></span> Ubah</button>
+                  <button type="submit" class="btn btn-primary" style= "background-color: #5B913B; border-color: #5B913B;"><span class="fa fa-edit"></span> Ubah</button>
                 </form>
               
           </div>
