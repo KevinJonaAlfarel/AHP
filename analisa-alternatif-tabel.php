@@ -45,7 +45,7 @@ if(isset($_POST['hapus'])){
 	</div>
 	<div class="col-xs-12 col-sm-12 col-md-10">
 	<ol class="breadcrumb">
-	  <li><a href="index.php"><span class="fa fa-home"></span> eranda</a></li>
+	  <li><a href="index.php"><span class="fa fa-home"></span> Beranda</a></li>
 	  <li><a href="analisa-alternatif.php"><span class="fa fa-balance-scale"></span> Analisa Alternatif</a></li>
 	  <li class="active"><span class="fa fa-table"></span> Tabel Analisa Alternatif</li>
 	</ol>
