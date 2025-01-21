@@ -15,8 +15,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 16px;
-            background-color: #666666;
+            padding: 20px 16px;
+            background: linear-gradient(to right, #118b50, blue);
             border-bottom: 1px solid #ccc;
             color: white;
         }
@@ -34,10 +34,10 @@
         .container p {
             margin: 0; 
             color: darkgrey;
-            font-size: 14px; /* Standard body text size */
+            font-size: 14px;    /* Standard body text size */
         }
         .container:hover {
-            color: white;
+            color: none;
         }
         .offcanvas {
             position: absolute;
@@ -45,7 +45,7 @@
             left: -250px;
             width: 250px;
             height: 100%;
-            background-color: #666666;
+            background: linear-gradient(to bottom, #118b50, blue);
             overflow-x: hidden;
             transition: 0.3s;
             padding-top: 60px;
@@ -61,7 +61,9 @@
             transition: 0.3s;
         }
         .offcanvas a:hover {
-            color: gray;
+            color: black;
+            background: #fff;
+            padding-right: 20px
         }
         .offcanvas .closebtn {
             position: absolute;
@@ -88,14 +90,13 @@
     <ul>
         <li>
             <div class="container">
-                <img src="assets/logo.png" width="30%" alt="">
+                <!-- <img src="assets/logo.png" width="30%" alt=""> -->
                 <div>
                     <p>Hallo Admin !</p>
-                    <p>Pasia Nan Tigo</p>
                 </div>
             </div>
         </li>
-        <li><a class="item" href="index.php">Home</a></li>
+        <li><a class="item" href="dashboard.php">Home</a></li>
         <li>
             <a class="item" href="kriteria.php">Kriteria
                 <div class="ui blue tiny label" style="float: right;"><?php echo getJumlahKriteria(); ?></div>
@@ -118,6 +119,7 @@
             ?>
         </ul>
         <li><a class="item" href="hasil.php">Hasil</a></li>
+        <li><a class="item" href="index.php">Logout</a></li>
     </ul>
 </div>
 

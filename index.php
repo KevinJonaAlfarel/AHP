@@ -49,13 +49,21 @@ if(isset($_GET['pesan'])){
     .login-form {
       width: 300px;
       margin: 0 auto;
-      margin-top: 50px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .container {
+      background-color: #f7f7f7;
+      margin-top: 200px;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     }
   </style>
 </head>
-<body>
+<body style = "background-color: grey">
   
-  <div class="container">
+  <div class="container" >
     <div class="row">
       <div class="col-md-6 col-sm-12 offset-md-3">
         <form class="login-form" action="index.php?aksi=masuk" method="post">
@@ -67,7 +75,7 @@ if(isset($_GET['pesan'])){
             <input type="password" class="form-control" placeholder="Password" required="required" name="password">
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+            <button type="submit" class="btn btn-primary btn-block" style="background: linear-gradient(90deg, #118b50, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);">Log in</button>
           </div>
           <div class="clearfix">
             <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
