@@ -1,0 +1,93 @@
+/* Layout */
+html, body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+nav {
+    width: 17em;
+}
+
+.content {
+    flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    body {
+        min-height: 0; 
+    }
+    .wrapper {
+        flex-direction: column;
+    }
+    .content {
+        flex-basis: auto;
+    }
+    nav {
+        width: auto;
+        order: 1;
+    }
+}
+
+/* Decoration */
+body {
+    background: #fff;
+}
+
+header, nav, section, footer {
+    padding: 10px 30px;
+    margin: 0;
+    color: #fff;
+}
+
+header {
+    background: #303030;
+    text-align: center;
+    padding: 30px;
+}
+
+nav {
+    background: #666666;
+    padding: 0;
+}
+
+nav a {
+    display: block;
+    font-weight: 900;
+    padding: .5em 1em;
+    color: #fff;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 10px 0 10px 15px;
+}
+
+li:hover {
+    background: gray;
+    transition: all .3s ease-in;
+}
+
+li:hover a {
+    color: black;
+}
+
+section {
+    background: gray;
+    color: black;
+    padding: 30px;
+}
+
+footer {
+    background: #303030;
+    text-align: center;
+}

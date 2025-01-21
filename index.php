@@ -1,131 +1,86 @@
 <?php
-include_once 'header.php';
-include_once 'includes/nilai.inc.php';
-$pro3 = new Nilai($db);
-$stmt3 = $pro3->readAll();
-include_once 'includes/alternatif.inc.php';
-$pro1 = new Alternatif($db);
-$stmt1 = $pro1->readAll();
-$stmt4 = $pro1->readAll();
-include_once 'includes/kriteria.inc.php';
-$pro2 = new Kriteria($db);
-$stmt2 = $pro2->readAll();
-include_once 'includes/bobot.inc.php';
-$pro5 = new Bobot($db);
-$stmt5 = $pro5->readAll();
-?>
-		<div class="row">
-		  <div class="col-xs-12 col-sm-12 col-md-2">
-		  	<?php
-			include_once 'sidebar.php';
-			?>
-		  </div>
-		  <div class="col-xs-12 col-sm-12 col-md-10">
-			<div id="container2" style="min-width: 100%; height: 400px; margin: 0 auto"></div>
-		  <br/>
-		<div class="row">
-		  <div class="col-xs-12 col-sm-12 col-md-4">
-			<div class="panel panel-default">
-			  <div class="panel-heading">
-			    <h3 class="panel-title">Nilai Preferensi</h3>
-			  </div>
-			  <div class="panel-body">
-			    <ol>
-			    	<?php
-					while ($row3 = $stmt3->fetch(PDO::FETCH_ASSOC)){
-					?>
-				  	<li><?php echo $row3['ket_nilai'] ?> (<?php echo $row3['jum_nilai'] ?>)</li>
-				  	<?php
-					}
-				  	?>
-				</ol>
-			  </div>
-			</div>
-		  </div>
-		  <div class="col-xs-12 col-sm-12 col-md-4">
-			<div class="panel panel-default">
-			  <div class="panel-heading">
-			    <h3 class="panel-title">Kriteria & Bobot</h3>
-			  </div>
-			  <div class="panel-body">
-			    <ol>
-			    	<?php
-					while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
-					?>
-				  	<li><?php echo $row2['nama_kriteria'] ?></li>
-				  	<?php
-					}
-				  	?>
-				</ol>
-			  </div>
-			</div>
-		  </div>
-		  <div class="col-xs-12 col-sm-12 col-md-4">
-			<div class="panel panel-default">
-			  <div class="panel-heading">
-			    <h3 class="panel-title">Skor Alternatif & Hasil</h3>
-			  </div>
-			  <div class="panel-body">
-			    <ol>
-			    	<?php
-					while ($row1 = $stmt1->fetch(PDO::FETCH_ASSOC)){
-					?>
-				  	<li><?php echo $row1['nama_alternatif'] ?></li>
-				  	<?php
-					}
-				  	?>
-				</ol>
-			  </div>
-			</div>
-		  </div>
-		</div>
-		
-		</div>
-		</div>
-		
-		<footer class="text-center">&copy; 2015</footer>
-	</div>
+session_start();
+include "config.php";
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/highcharts.js"></script>
-	<script src="js/exporting.js"></script>
-	<script>
-	var chart1; // globally available
-	$(document).ready(function() {
-	      chart1 = new Highcharts.Chart({
-	         chart: {
-	            renderTo: 'container2',
-	            type: 'column'
-	         },  
-	         title: {
-	            text: 'Grafik Perangkingan '
-	         },
-	         xAxis: {
-	            categories: ['Alternatif']
-	         },
-	         yAxis: {
-	            title: {
-	               text: 'Jumlah Nilai'
-	            }
-	         },
-	              series:            
-	            [
-	            <?php
-	            while ($row4 = $stmt4->fetch(PDO::FETCH_ASSOC)){
-	                  ?>
-	                 //data yang diambil dari database dimasukan ke variable nama dan data
-	                 //
-	                  {
-	                      name: '<?php echo $row4['nama_alternatif'] ?>',
-	                      data: [<?php echo $row4['hasil_akhir'] ?>]
-	                  },
-	                  <?php } ?>
-	            ]
-	      });
-	   });  
-	   </script>
-	</body>
+if(isset($_GET['aksi'])){
+  if($_GET['aksi'] == 'masuk'){ // Perbaikan operator pembanding
+    $username = $_POST['username'];
+    $password = $_POST['password']; // Perbaikan penulisan variabel
+
+    // Perhatikan penambahan tanda kutip pada variabel string dalam query SQL
+    $data = mysqli_query($koneksi, "SELECT * FROM akun WHERE username='$username' AND password='$password'");
+    $row = mysqli_num_rows($data);
+
+    if($row > 0 ){
+      $a = mysqli_fetch_array($data);
+      if($a['level'] == 'Admin' or $a['level'] == 'admin'){ // Perbaikan pengejaan dan tanda kutip pada level
+        $_SESSION['username'] = $username;
+        header("location: dashboard.php");
+        exit(); // Pastikan untuk menghentikan eksekusi setelah header redirect
+      }
+    }else{
+      header("location: index.php?pesan=gagal");
+      exit(); // Pastikan untuk menghentikan eksekusi setelah header redirect
+    }
+  }
+}
+?>
+
+<?php
+if(isset($_GET['pesan'])){
+  if($_GET['pesan'] == 'gagal'){ // Perbaikan pemeriksaan $_GET
+    echo "<div class='alert alert-danger' role='alert'>Login Gagal</div>";
+  }
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    .login-form {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12 offset-md-3">
+        <form class="login-form" action="index.php?aksi=masuk" method="post">
+          <h2 class="text-center">Login</h2>  
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" required="required" name="username">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" required="required" name="password">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+          </div>
+          <div class="clearfix">
+            <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+            <a href="#" class="float-right">Forgot Password?</a>
+          </div>        
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

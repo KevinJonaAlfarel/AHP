@@ -1,69 +1,142 @@
-<?php
-include "includes/config.php";
-session_start();
-if(!isset($_SESSION['nama_lengkap'])){
-	echo "<script>location.href='login.php'</script>";
-}
-$config = new Config();
-$db = $config->getConnection();
-?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Metode AHP (Analytic Hierarchy Process) : Sistem Pendukung Keputusan</title>
+<head>
+    <meta charset="UTF-8">
+    <title>Sistem Pendukung Keputusan metode AHP</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px; /* Set a standard base font size */
+        }
+        header {
+            text-align: start;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+            background-color: #666666;
+            border-bottom: 1px solid #ccc;
+            color: white;
+        }
+        header h3 {
+            font-size: 18px; /* Slightly larger for the header title */
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            align-items: center; /* Center elements vertically */
+        }
+        .container img {
+            margin-right: 10px; /* Space between image and text */
+        }
+        .container p {
+            margin: 0; 
+            color: darkgrey;
+            font-size: 14px; /* Standard body text size */
+        }
+        .container:hover {
+            color: white;
+        }
+        .offcanvas {
+            position: absolute;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #666666;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+            font-size: 14px; /* Slightly larger for offcanvas menu items */
+            z-index: 1000; /* Ensure the offcanvas menu is on top */
+        }
+        .offcanvas a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 15px; /* Font size for links */
+            color: #fff;
+            display: block;
+            transition: 0.3s;
+        }
+        .offcanvas a:hover {
+            color: gray;
+        }
+        .offcanvas .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 30px; /* Size for close button */
+            margin-left: 50px;
+        }
+        #main {
+            transition: margin-left 0.3s;
+            padding: 16px;
+        }
+    </style>
+</head>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link type="text/css" href="css/jquery.toastmessage.css" rel="stylesheet"/>
-	<link rel="stylesheet" href="css/font-awesome.min.css">
+<body>
+<header>
+    <span style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+    <h3>Sistem Pendukung Keputusan dengan metode AHP</h3>
+</header>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-  
-	<nav class="navbar navbar-default navbar-static-top" style="background-color: #5B913B; border-color: #5B913B; color: rgb(255, 255, 255);">
-	  <div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		  </button>
-		  <a class="navbar-brand" href="index.php">AHP (Analytic Hierarchy Process)</a>
-		</div>
+<div id="myOffcanvas" class="offcanvas">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <ul>
+        <li>
+            <div class="container">
+                <img src="assets/logo.png" width="30%" alt="">
+                <div>
+                    <p>Hallo Admin !</p>
+                    <p>Pasia Nan Tigo</p>
+                </div>
+            </div>
+        </li>
+        <li><a class="item" href="index.php">Home</a></li>
+        <li>
+            <a class="item" href="kriteria.php">Kriteria
+                <div class="ui blue tiny label" style="float: right;"><?php echo getJumlahKriteria(); ?></div>
+            </a>
+        </li>
+        <li>
+            <a class="item" href="alternatif.php">Alternatif
+                <div class="ui blue tiny label" style="float: right;"><?php echo getJumlahAlternatif(); ?></div>
+            </a>
+        </li>
+        <li><a class="item" href="bobot_kriteria.php">Perbandingan Kriteria</a></li>
+        <li><a class="item" href="bobot.php?c=1">Perbandingan Alternatif</a></li>
+        <ul>
+            <?php
+                if (getJumlahKriteria() > 0) {
+                    for ($i=0; $i <= (getJumlahKriteria()-1); $i++) { 
+                        echo "<li><a class='item' href='bobot.php?c=".($i+1)."'>".getKriteriaNama($i)."</a></li>";
+                    }
+                }
+            ?>
+        </ul>
+        <li><a class="item" href="hasil.php">Hasil</a></li>
+    </ul>
+</div>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav navbar-right">
-			<li><a href="https://www.facebook.com/ghazali.samudera"><span class="fa fa-facebook"></span></a></li>
-			<li><a href="https://www.plus.google.com/+TGhazali"><span class="fa fa-google-plus"></span></a></li>
-			<li><a href="https://www.twitter.com/tghazalipidie"><span class="fa fa-twitter"></span></a></li>
-			<li><a href="https://www.youtube.com/?q=Code+Berkas"><span class="fa fa-youtube"></span></a></li>
-			<li><a href="profil.php"><?php echo $_SESSION['nama_lengkap'] ?></a></li>
-			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></a>
-			  <ul class="dropdown-menu">
-				<li><a href="profil.php"><span class="fa fa-user"></span> Profil</a></li>
-				<li><a href="user.php"><span class="fa fa-users"></span> Manejer Pengguna</a></li>
-				<li role="separator" class="divider"></li>
-				<li><a href="logout.php"><span class="fa fa-sign-out"></span> Logout</a></li>
-			  </ul>
-			</li>
-		  </ul>
-		</div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>
-  
-    <div class="container-fluid">
+<div id="main">
+    <div class="wrapper">
+        <!-- Content goes here -->
+    </div>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("myOffcanvas").style.left = "0";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("myOffcanvas").style.left = "-250px";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>
+</body>
+</html>
