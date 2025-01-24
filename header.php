@@ -62,7 +62,7 @@
         }
         .offcanvas a:hover {
             color: black;
-            background: #fff;
+            background: #ffffff;
             padding-right: 20px
         }
         .offcanvas .closebtn {

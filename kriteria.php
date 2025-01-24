@@ -27,7 +27,7 @@ session_start();
 	include('header.php');
 ?>
 
-<section class="content">
+<section class="content" style="background-color: white">
 	<h2 class="ui header">Kriteria</h2>
 	
 	<table class="ui celled table">
