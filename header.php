@@ -24,21 +24,20 @@
             font-size: 18px; /* Slightly larger for the header title */
             margin: 0;
         }
-        .container {
+        /*.container {
             display: flex;
-            align-items: center; /* Center elements vertically */
+            align-items: center; 
         }
         .container img {
-            margin-right: 10px; /* Space between image and text */
-        }
-        .container p {
+            margin-right: 10px; 
+         .container p {
             margin: 0; 
             color: darkgrey;
-            font-size: 14px;    /* Standard body text size */
+            font-size: 14px;    Standard body text size 
         }
         .container:hover {
             color: none;
-        }
+        }*/
         .offcanvas {
             position: absolute;
             top: 0;
@@ -88,14 +87,13 @@
 <div id="myOffcanvas" class="offcanvas">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <ul>
-        <li>
+        <!-- <li>
             <div class="container">
-                <!-- <img src="assets/logo.png" width="30%" alt=""> -->
                 <div>
                     <p>Hallo Admin !</p>
                 </div>
             </div>
-        </li>
+        </li> -->
         <li><a class="item" href="dashboard.php">Home</a></li>
         <li>
             <a class="item" href="kriteria.php">Kriteria
