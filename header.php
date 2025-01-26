@@ -126,8 +126,7 @@
 <div id="main">
     <div class="wrapper">
         <!-- Content goes here -->
-    </div>
-</div>
+
 
 <script>
     function openNav() {

@@ -1,4 +1,5 @@
 </div> <!-- /wrapper -->
+</div> <!-- /wrapper -->
 
 <footer>
 	<p>Copyright &copy; <?php echo date("Y"); ?></p>
