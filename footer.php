@@ -1,7 +1,7 @@
-</div> <!-- /wrapper -->
-</div> <!-- /wrapper -->
 
-<footer>
+</div> <!-- /wrapper -->
+</div> <!-- /wrapper -->
+<footer style="margin-top: auto;">
 	<p>Copyright &copy; <?php echo date("Y"); ?></p>
 </footer>
 
