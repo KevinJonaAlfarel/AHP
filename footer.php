@@ -1,7 +1,7 @@
 </div> <!-- /wrapper -->
 
 <footer>
-	<p>Copyright &copy; <?php echo date("Y"); ?></p>
+	<p><?php echo $_SESSION['username']; ?> &copy; <?php echo"2025"; ?></p>
 </footer>
 
 <script src="js/jquery-3.2.1.js"></script>

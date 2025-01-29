@@ -18,6 +18,11 @@ if(isset($_GET['aksi'])){
         header("location: dashboard.php");
         exit(); // Pastikan untuk menghentikan eksekusi setelah header redirect
       }
+      if($a['level'] == 'KepalaSekolah' or $a['level'] == 'kepalasekolah'){ // Perbaikan pengejaan dan tanda kutip pada level
+        $_SESSION['username'] = $username;
+        header("location: dashboard.php");
+        exit(); // Pastikan untuk menghentikan eksekusi setelah header redirect
+      }
     }else{
       header("location: index.php?pesan=gagal");
       exit(); // Pastikan untuk menghentikan eksekusi setelah header redirect

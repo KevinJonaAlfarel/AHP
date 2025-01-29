@@ -88,12 +88,9 @@
 <div id="myOffcanvas" class="offcanvas">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <ul>
-        <li>
+        <li style="margin-bottom: 2em;color:#fff;">
             <div class="container">
-                <!-- <img src="assets/logo.png" width="30%" alt=""> -->
-                <div>
-                    <p>Hallo Admin !</p>
-                </div>
+                    <h2><?php echo $_SESSION['username'] ?></h2>
             </div>
         </li>
         <li><a class="item" href="dashboard.php">Home</a></li>
@@ -107,17 +104,19 @@
                 <div class="ui blue tiny label" style="float: right;"><?php echo getJumlahAlternatif(); ?></div>
             </a>
         </li>
-        <li><a class="item" href="bobot_kriteria.php">Perbandingan Kriteria</a></li>
-        <li><a class="item" href="bobot.php?c=1">Perbandingan Alternatif</a></li>
-        <ul>
-            <?php
-                if (getJumlahKriteria() > 0) {
-                    for ($i=0; $i <= (getJumlahKriteria()-1); $i++) { 
-                        echo "<li><a class='item' href='bobot.php?c=".($i+1)."'>".getKriteriaNama($i)."</a></li>";
+        <?php if (isset($_SESSION['level']) && $_SESSION['level'] !== 'KepalaSekolah') : ?>
+            <li><a class="item" href="bobot_kriteria.php">Perbandingan Kriteria</a></li>
+            <li><a class="item" href="bobot.php?c=1">Perbandingan Alternatif</a></li>
+            <ul>
+                <?php
+                    if (getJumlahKriteria() > 0) {
+                        for ($i=0; $i <= (getJumlahKriteria()-1); $i++) { 
+                            echo "<li><a class='item' href='bobot.php?c=".($i+1)."'>".getKriteriaNama($i)."</a></li>";
+                        }
                     }
-                }
-            ?>
-        </ul>
+                ?>
+            </ul>
+        <?php endif; ?>
         <li><a class="item" href="hasil.php">Hasil</a></li>
         <li><a class="item" href="index.php">Logout</a></li>
     </ul>
