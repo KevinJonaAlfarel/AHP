@@ -5,7 +5,7 @@ session_start();
 include('cek.php'); 
 include('config.php');
 include('fungsi.php');
-include('header.php');
+include('header-admin.php');
 ?>
 
 	<section class="content">

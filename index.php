@@ -1,5 +1,4 @@
 <?php
-session_start();
 include "config.php";
 
 if(isset($_GET['aksi'])){
@@ -14,6 +13,10 @@ if(isset($_GET['aksi'])){
     if($row > 0 ){
       $a = mysqli_fetch_array($data);
       if($a['level'] == 'Admin' or $a['level'] == 'admin'){ // Perbaikan pengejaan dan tanda kutip pada level
+        $_SESSION['username'] = $username;
+        header("location: dashboard-admin.php");
+        exit(); // Pastikan untuk menghentikan eksekusi setelah header redirect
+      }else if($a['level'] == 'KepalaSekolah' or $a['level'] == 'kepala sekolah'){ // Perbaikan pengejaan dan tanda kutip pada level
         $_SESSION['username'] = $username;
         header("location: dashboard.php");
         exit(); // Pastikan untuk menghentikan eksekusi setelah header redirect
