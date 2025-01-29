@@ -1,4 +1,3 @@
-</div> <!-- /wrapper -->
 
 <footer>
 	<p><?php echo $_SESSION['username']; ?> &copy; <?php echo"2025"; ?></p>
