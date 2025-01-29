@@ -1,8 +1,6 @@
 
-</div> <!-- /wrapper -->
-</div> <!-- /wrapper -->
-<footer style="margin-top: auto;">
-	<p>Copyright &copy; <?php echo date("Y"); ?></p>
+<footer>
+	<p><?php echo $_SESSION['username']; ?> &copy; <?php echo"2025"; ?></p>
 </footer>
 
 <script src="js/jquery-3.2.1.js"></script>
