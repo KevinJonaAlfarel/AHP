@@ -95,7 +95,7 @@
             </div>
         </li>
         <li><a class="item" href="dashboard.php">Home</a></li>
-        <li>
+        <!-- <li>
             <a class="item" href="kriteria.php">Kriteria
                 <div class="ui blue tiny label" style="float: right;"><?php echo getJumlahKriteria(); ?></div>
             </a>
@@ -104,7 +104,7 @@
             <a class="item" href="alternatif.php">Alternatif
                 <div class="ui blue tiny label" style="float: right;"><?php echo getJumlahAlternatif(); ?></div>
             </a>
-        </li>
+        </li> -->
 
         <li><a class="item" href="hasil.php">Hasil</a></li>
         <li><a class="item" href="index.php">Logout</a></li>
