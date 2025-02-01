@@ -1,5 +1,4 @@
 <?php
-session_start();
 	include('cek.php'); 
 	include('header.php');
 

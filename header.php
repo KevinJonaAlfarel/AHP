@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,12 +91,13 @@
     <li style="margin-bottom: 2.5em;color: white;">
             <div class="container">
                 <div>
-                    <h4>Hallo, Kepala Sekolah !</h4>
+                    <h4>Hallo, <?php echo $_SESSION["nama_lengkap"]; ?> !</h4>
                 </div>
             </div>
         </li>
         <li><a class="item" href="dashboard.php">Home</a></li>
-        <!-- <li>
+        <?php if ($_SESSION['level'] == 'Admin') : ?>
+        <li>
             <a class="item" href="kriteria.php">Kriteria
                 <div class="ui blue tiny label" style="float: right;"><?php echo getJumlahKriteria(); ?></div>
             </a>
@@ -104,8 +106,19 @@
             <a class="item" href="alternatif.php">Alternatif
                 <div class="ui blue tiny label" style="float: right;"><?php echo getJumlahAlternatif(); ?></div>
             </a>
-        </li> -->
-
+        </li>
+        <li><a class="item" href="bobot_kriteria.php">Perbandingan Kriteria</a></li>
+        <li><a class="item" href="bobot.php?c=1">Perbandingan Alternatif</a></li>
+        <ul>
+            <?php
+                if (getJumlahKriteria() > 0) {
+                    for ($i=0; $i <= (getJumlahKriteria()-1); $i++) { 
+                        echo "<li><a class='item' href='bobot.php?c=".($i+1)."'>".getKriteriaNama($i)."</a></li>";
+                    }
+                }
+            ?>
+        </ul>
+        <?php endif; ?>
         <li><a class="item" href="hasil.php">Hasil</a></li>
         <li><a class="item" href="index.php">Logout</a></li>
     </ul>

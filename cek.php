@@ -1,7 +1,12 @@
-<?php
-  
-    // Periksa apakah pengguna sudah login
-    if(!isset($_SESSION['username'])){
-        header('location:index.php'); // Redirect ke halaman login jika pengguna belum login
-        exit(); // Pastikan untuk menghentikan eksekusi skrip setelah header redirect
-    }
+<?php 
+	
+    session_start();
+    if(!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
+        echo "<script>
+                alert('Please login first');
+                document.location.href = 'index.php';
+            </script>";
+        exit;
+    } 
+    
+
