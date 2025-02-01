@@ -1,4 +1,6 @@
+
 <?php
+session_start();
 include "config.php";
 
 if(isset($_GET['aksi'])){
@@ -16,7 +18,7 @@ if(isset($_GET['aksi'])){
         $_SESSION['username'] = $username;
         header("location: dashboard-admin.php");
         exit(); // Pastikan untuk menghentikan eksekusi setelah header redirect
-      }else if($a['level'] == 'KepalaSekolah' or $a['level'] == 'kepala sekolah'){ // Perbaikan pengejaan dan tanda kutip pada level
+      }else if($a['level'] == 'KepalaSekolah' or $a['level'] == 'kepalasekolah'){ // Perbaikan pengejaan dan tanda kutip pada level
         $_SESSION['username'] = $username;
         header("location: dashboard.php");
         exit(); // Pastikan untuk menghentikan eksekusi setelah header redirect
