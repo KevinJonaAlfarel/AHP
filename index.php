@@ -44,6 +44,11 @@ if (isset($_POST['login'])) {
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        .logo img{
+            width: 300px;
+            height: auto;
+        }
+
         .login-form {
             width: 300px;
             margin: 0 auto;
@@ -51,6 +56,8 @@ if (isset($_POST['login'])) {
         }
 
         .container {
+            display: flex;
+            justify-content: center;
             background-color: #f7f7f7;
             margin-top: 150px;
             padding: 20px;
@@ -63,7 +70,10 @@ if (isset($_POST['login'])) {
 <body style="background-color: grey;">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-12 offset-md-3">
+            <div class="c">
+                <div class="logo">
+                    <img src="img/img_logo.png" alt="logo">
+                </div>
                 <form class="login-form" action="" method="post">
                     <h2 class="text-center">Login</h2>
                     <?php if (isset($error)) : ?>

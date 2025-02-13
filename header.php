@@ -83,17 +83,19 @@
 <header>
     <span style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
     <h3>Sistem Pendukung Keputusan dengan metode AHP</h3>
+    <img src="img/img_logo.png" alt="logo" style = "width: 50px; margin-top: -10px; margin-bottom: -10px;">
 </header>
 
 <div id="myOffcanvas" class="offcanvas">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <ul>
-    <li style="margin-bottom: 2.5em;color: white;">
-            <div class="container">
-                <div>
-                    <h4>Hallo, <?php echo $_SESSION["nama_lengkap"]; ?> !</h4>
-                </div>
+        <div class="container">
+            <div class="header_dash" style="text-align: center;">
+                <img src="img/img_logo.png" alt="logo" style = "width: 100px;">
+                <h4 style="color: white;">Hallo, <?php echo $_SESSION["nama_lengkap"]; ?> !</h4>
             </div>
+        </div>
+    <li style="margin-bottom: 2.5em;color: white;">
         </li>
         <li><a class="item" href="dashboard.php">Home</a></li>
         <?php if ($_SESSION['level'] == 'Admin') : ?>
