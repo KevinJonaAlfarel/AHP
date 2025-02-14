@@ -58,6 +58,9 @@ if (isset($_POST['login'])) {
         .container {
             display: flex;
             justify-content: center;
+            backdrop-filter: blur(2px);
+            background-color: rgba(247, 247, 247, 0.7);
+            backdrop-filter: blur(2px);
             background-color: #f7f7f7;
             margin-top: 150px;
             padding: 20px;
@@ -67,7 +70,7 @@ if (isset($_POST['login'])) {
     </style>
 </head>
 
-<body style="background-color: grey;">
+<body style="background-color: grey; background-image: url(img/img_sekolah.jpg);">
     <div class="container">
         <div class="row">
             <div class="c">
@@ -106,3 +109,4 @@ if (isset($_POST['login'])) {
 </body>
 
 </html>
+

@@ -98,7 +98,7 @@
     <li style="margin-bottom: 2.5em;color: white;">
         </li>
         <li><a class="item" href="dashboard.php">Home</a></li>
-        <?php //if ($_SESSION['level'] == 'Admin') : ?>
+        <?php if ($_SESSION['level'] == 'kepalaSekolah') : ?>
         <li>
             <a class="item" href="kriteria.php">Kriteria
                 <div class="ui blue tiny label" style="float: right;"><?php echo getJumlahKriteria(); ?></div>
@@ -122,7 +122,7 @@
                 }
             ?>
         </ul>
-        <?php // endif; ?>
+        <?php  endif; ?>
         <li><a class="item" href="hasil.php">Hasil</a></li>
         <li><a class="item" href="index.php">Logout</a></li>
     </ul>
