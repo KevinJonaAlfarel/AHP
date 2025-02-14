@@ -143,7 +143,7 @@ include('header.php');
 
 		var footer = `
 			<div style="margin-top: 50px;">
-				<p style="text-align: right;">Padang Panjang, ${new Date().toLocaleDateString()}</p>
+				<p style="text-align: right;">Solok, ${new Date().toLocaleDateString()}</p>
 				<table style="width: 100%; margin-top: 30px;">
 					<tr>
 						<td style="width: 50%; text-align: center;">Mengetahui,</td>
