@@ -1,6 +1,6 @@
 <?php
 
-include('cek.php');
+// include('cek.php');
 include('config.php');
 include('fungsi.php');
 
