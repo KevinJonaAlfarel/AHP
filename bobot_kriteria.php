@@ -2,6 +2,7 @@
 	
 	include('config.php');
 	include('fungsi.php');
+	include('cek.php');
 
 	include('header.php');
 ?>
