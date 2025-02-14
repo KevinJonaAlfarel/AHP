@@ -98,6 +98,7 @@
     <li style="margin-bottom: 2.5em;color: white;">
         </li>
         <li><a class="item" href="dashboard.php">Home</a></li>
+        <?php if ($_SESSION['level'] == 'Admin') : ?>
         <li>
             <a class="item" href="kriteria.php">Kriteria
                 <div class="ui blue tiny label" style="float: right;"><?php echo getJumlahKriteria(); ?></div>
@@ -107,9 +108,10 @@
             <a class="item" href="alternatif.php">Alternatif
                 <div class="ui blue tiny label" style="float: right;"><?php echo getJumlahAlternatif(); ?></div>
             </a>
-            <?php if ($_SESSION['level'] !== 'Admin') : ?>
             <li>
-            <a class="item" href="akses_proses.php?jenis=kriteria">Proses </a>
+        <?php  endif; ?>
+            <?php if ($_SESSION['level'] !== 'Admin') : ?>
+            <!-- <a class="item" href="akses_proses.php?jenis=kriteria">Proses </a> -->
         </li>
         <li><a class="item" href="bobot_kriteria.php">Perbandingan Kriteria</a></li>
         <li><a class="item" href="bobot.php?c=1">Perbandingan Alternatif</a></li>
