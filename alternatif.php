@@ -87,13 +87,14 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
 
 	<br>
 
-
+	<?php if ($_SESSION['level'] == 'kepalaSekolah') : ?>
 	<form action="bobot_kriteria.php">
 	<button class="ui right labeled icon button" style="float: right;">
 		<i class="right arrow icon"></i>
 		Lanjut
 	</button>
 	</form>
+	<?php endif; ?>
 </section>
 
 <?php include('footer.php'); ?>
